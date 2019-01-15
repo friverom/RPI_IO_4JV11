@@ -199,7 +199,7 @@ public class Net_RPI_IO {
         return reply;
     }
     /**
-     * This methosdsets the analog settings for channel.
+     * This method sets the analog settings for channel.
      * @param task 1..255
      * @param level 1..5
      * @param chn 1..8
