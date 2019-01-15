@@ -34,27 +34,27 @@ public class RPI_Data implements Serializable{
         }
     }
 
-     public static String get_Rpi_name() {
+     public String get_Rpi_name() {
         return rpi_name;
     }
 
-    public static void set_Rpi_name(String rpi_name) {
+    public void set_Rpi_name(String rpi_name) {
         RPI_Data.rpi_name = rpi_name;
     }
 
-    public static String get_Rpi_location() {
+    public String get_Rpi_location() {
         return rpi_location;
     }
 
-    public static void set_Rpi_location(String rpi_location) {
+    public void set_Rpi_location(String rpi_location) {
         RPI_Data.rpi_location = rpi_location;
     }
 
-    public static String get_Rpi_address() {
+    public String get_Rpi_address() {
         return rpi_address;
     }
 
-    public static void set_Rpi_address(String rpi_address) {
+    public void set_Rpi_address(String rpi_address) {
         RPI_Data.rpi_address = rpi_address;
     }
     
