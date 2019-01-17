@@ -14,16 +14,17 @@ import java.io.Serializable;
  */
 public class RPI_Data implements Serializable{
     
-    private static String rpi_name="";
-    private static String rpi_location="";
-    private static String rpi_address="";
-    private static int hw_inputs=0; //rpi input port status
-    private static int hw_outputs=0; //rpi output port status
-    private static int sw_inputs=0; //binary inputs to rpi software
-    private static int sw_outputs=0; // binary outputs from rpi software
-    private static int[] hw_analogs= new int [8]; //rpi analog readings
-    private static double[] sw_results= new double [16]; // software results
-    private static double[] setpoints= new double[16]; //software setpoints.
+    private static final long serialVersionUID = 1234L;
+    private String rpi_name="";
+    private String rpi_location="";
+    private String rpi_address="";
+    private int hw_inputs=0; //rpi input port status
+    private int hw_outputs=0; //rpi output port status
+    private int sw_inputs=0; //binary inputs to rpi software
+    private int sw_outputs=0; // binary outputs from rpi software
+    private double[] hw_analogs= new double [8]; //rpi analog readings
+    private double[] sw_results= new double [16]; // software results
+    private double[] setpoints= new double[16]; //software setpoints.
 
     public RPI_Data() {
         //Initialize class instance
@@ -39,7 +40,7 @@ public class RPI_Data implements Serializable{
     }
 
     public void set_Rpi_name(String rpi_name) {
-        RPI_Data.rpi_name = rpi_name;
+        this.rpi_name = rpi_name;
     }
 
     public String get_Rpi_location() {
@@ -47,7 +48,7 @@ public class RPI_Data implements Serializable{
     }
 
     public void set_Rpi_location(String rpi_location) {
-        RPI_Data.rpi_location = rpi_location;
+        this.rpi_location = rpi_location;
     }
 
     public String get_Rpi_address() {
@@ -55,7 +56,7 @@ public class RPI_Data implements Serializable{
     }
 
     public void set_Rpi_address(String rpi_address) {
-        RPI_Data.rpi_address = rpi_address;
+        this.rpi_address = rpi_address;
     }
     
     public void setFlags(int flags){
@@ -106,11 +107,11 @@ public class RPI_Data implements Serializable{
         }
     }
     
-    public int[] getAnalogs() {
+    public double[] getAnalogs() {
         return hw_analogs;
     }
 
-    public int getAnalog(int channel){
+    public double getAnalog(int channel){
         if(channel>0 && channel<9){
             return hw_analogs[channel-1];
         } else {
@@ -118,11 +119,11 @@ public class RPI_Data implements Serializable{
         }
     }
        
-    public void setAnalogs(int[] analogs) {
+    public void setAnalogs(double[] analogs) {
         this.hw_analogs = analogs;
     }
     
-    public void setAnalog(int channel,int value){
+    public void setAnalog(int channel,double value){
         if(channel>0 && channel<9){
             this.hw_analogs[channel-1]=value;
         }
