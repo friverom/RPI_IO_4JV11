@@ -167,6 +167,10 @@ public class RPI_IO {
     public void setCalendarRTC(Calendar date){
         rtc.setCalendarRTC(date);
     }
+    
+    public int getControlReg() throws IOException{
+        return rtc.getControlReg();
+    }
 /**
  * Blink RTC led at 1Hz
  */

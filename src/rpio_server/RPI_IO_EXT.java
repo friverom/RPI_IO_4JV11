@@ -279,6 +279,29 @@ public class RPI_IO_EXT extends RPI_IO{
         saveAnalogSettings();
         return "0";
     }
+    
+    public String readControlReg() throws IOException{
+        String reply = ""+super.getControlReg();
+        return reply;
+    }
+    /**
+     * Turns ON RTC Led
+     * @return 
+     */
+    public String setRPI_on(){
+        
+        super.out_on();
+        return "0";
+    }
+    
+    /**
+     * Turns OFF RTC Led.
+     * @return 
+     */
+    public String setRPI_off(){
+        super.out_off();
+        return "0";
+    }
    
     
     

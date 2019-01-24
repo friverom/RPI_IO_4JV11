@@ -343,6 +343,9 @@ public final class DS1307 {
         rtc.write(CONTROL_REG,(byte)OUT_ON);
     }
     
+    public int getControlReg() throws IOException{
+        return (int) rtc.read(CONTROL_REG);
+    }
     //methods to read and write to DS1307 memory
     
     /**

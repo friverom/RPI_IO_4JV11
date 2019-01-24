@@ -41,6 +41,9 @@ public class Net_RPI_IO {
     private static final String setSetpoint = "19";
     private static final String getSetpoints ="20";
     private static final String getAnalogs = "21";
+    private static final String setLedON = "22";
+    private static final String setLedOFF = "23";
+    private static final String getControlReg = "24";
     
     private Socket socket = null;
     private String address = null;
@@ -266,6 +269,25 @@ public class Net_RPI_IO {
         String reply = sendCommand(command);
         return reply;
     }
+    
+    public String setLedON(int task, int level) {
+        String command = task + "," + level + "," + setLedON + " " + 1;
+        String reply = sendCommand(command);
+        return reply;
+    }
+    
+    public String setLedOFF(int task, int level){
+        String command = task + ","+level+","+setLedOFF+" "+1;
+        String reply = sendCommand(command);
+        return reply;
+    }
+    
+    public String getControlReg(int task, int level){
+        String command = task + ","+level+","+getControlReg+" "+1;
+        String reply = sendCommand(command);
+        return reply;
+    }
+    
     private String sendCommand(String command) {
         try {
             int i = 0;

@@ -204,6 +204,23 @@ public class IO_Protocol {
                     break;
                 reply=""+rpio.getInput(Integer.parseInt(parts[1]));
                 break;
+                
+            case "22":
+                if(partsLenght!=2)
+                    break;
+                reply=""+rpio.setRPI_on();
+                break;
+                
+            case "23":
+                if(partsLenght!=2)
+                    break;
+                reply=""+rpio.setRPI_off();
+                break;
+                
+            case "24":
+                if(partsLenght!=2)
+                    break;
+                reply=""+rpio.getControlReg();
           
         }
         return reply;
