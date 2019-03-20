@@ -44,9 +44,11 @@ public class Net_RPI_IO {
     private static final String setLedON = "22";
     private static final String setLedOFF = "23";
     private static final String getControlReg = "24";
+    private static final String setOutputPort = "25";
     
     private Socket socket = null;
     private String address = null;
+    private int slave = 0;
     private int port = 0;
 
     private BufferedReader bfin = null;
@@ -62,7 +64,18 @@ public class Net_RPI_IO {
         this.address = address;
         this.port = port;
     }
-
+    
+    /**
+     * 
+     * @param address String IP address of RPI_IO board "localhost"
+     * @param port int port Master Task "30008"
+     * @param slave int slave address
+     */
+    public Net_RPI_IO(String address, int port, int slave){
+        this.address = address;
+        this.port = port;
+        this.slave = slave;
+    }
     /**
      * This method locks relay output to requesting task. Also, sets the level
      * of access  of requesting task.
@@ -288,7 +301,17 @@ public class Net_RPI_IO {
         return reply;
     }
     
+    public String setOutputPort(int task, int level, int value){
+        String command = task + "," + level + "," + setOutputPort + " "+ value;
+        String reply = sendCommand(command);
+        return reply;
+    }
+    
     private String sendCommand(String command) {
+        
+        if(slave != 0){
+            command = "1:"+slave+":"+command;
+        }
         try {
             int i = 0;
             String resp = "";
